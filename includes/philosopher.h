@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 21:07:04 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/14 23:16:20 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/15 00:28:57 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,22 @@
 #define TRUE        1
 #define FALSE       0
 
+typedef struct s_list
+{
+	void				*content;
+	struct s_list		*next;
+}   t_list	;
+
+
 //Structures
-typedef struct s_input
+typedef struct s_data
 {
     long    number_of_philosophers;
     long    time_to_die;
     long    time_to_eat;
     long    time_to_sleep;
     long    launching_time;
-}   t_input;
+}   t_data;
 
 typedef struct s_fork
 {
@@ -59,15 +66,15 @@ typedef struct s_philosopher
 
 
 //Init
-void    initialize_user_input (t_input  *uinput, char   **argv);
+void    initialize_user_input (t_data *data, char   **argv);
 
 //Philosopher situations
-int do_sleeping (t_input *input, t_philosopher *philosopher);
+int do_sleeping (t_data *data, t_philosopher *philosopher);
 int do_eating ();
 int do_thinking ();
 
 //ft_time
-long    get_passed_time_in_milli(long program_launch_time, long accual_time);
+long    get_passed_time_in_milli(long program_launch_time);
 long    get_actual_time_in_milliseconds();
 
 //utils
