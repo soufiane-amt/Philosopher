@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 22:25:08 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/14 23:56:42 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/15 18:24:23 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int do_sleeping (t_data *data, t_philosopher *philosopher)
 {
     printf("%d ", get_passed_time_in_milli(data->launching_time));
     printf ("%d is sleeping ", philosopher->identity);
-    usleep(data->time_to_sleep / 1000);
+    usleep(data->time_to_sleep * 1000);
 }
 
 
@@ -24,7 +24,7 @@ int do_eating (t_data *data, t_philosopher *philosopher)
 {
     printf ("%d ", get_passed_time_in_milli(data->launching_time));
     printf ("%d is eating ", philosopher->identity);
-    usleep(data->time_to_eat / 1000);
+    usleep(data->time_to_eat * 1000);
 }
 
 int do_thinking (t_data *data, t_philosopher *philosopher)

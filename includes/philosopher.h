@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 21:07:04 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/15 00:28:57 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/15 23:52:11 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,11 @@
 
 
 //Philospher status
-#define eating      25
-#define sleeping    26
-#define thinking    27
-#define dying       28
+#define NOTHING      0
+#define EATING      25
+#define SLEEPING    26
+#define THINKING    27
+#define DYING       28
 
 //utils
 #define TRUE        1
@@ -52,7 +53,6 @@ typedef struct s_fork
 {
     int             fork_index;
     int             fork_available;
-    int             fork_token;
     pthread_mutex_t fork_mutex;
 }   t_fork;
 
@@ -60,8 +60,8 @@ typedef struct s_philosopher
 {
     int     identity;
     int     status;
-    t_fork  right_fork_available;
-    t_fork  left_fork_available;
+    t_fork  right_fork;
+    t_fork  left_fork;
 }   t_philosopher;
 
 
