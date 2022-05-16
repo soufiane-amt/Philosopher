@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 00:10:05 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/16 01:38:13 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/16 01:47:49 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ t_philosopher    initialize_philosopher(int identity, int forks_number)
     philsopher.identity = identity;
     philsopher.status = NOTHING;
     initialize_forks(&philsopher, forks_number);
+    return (philsopher);
 }
 
 void    build_philosophers(t_list **philsophers, t_data data)

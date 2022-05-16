@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 21:07:04 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/16 01:37:30 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/16 01:50:04 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,9 @@ t_philosopher   initialize_philosopher(int identity, int forks_number);
 void            build_philosophers(t_list **philsophers, t_data data);
 
 //Philosopher situations
-int             do_sleeping (t_data *data, t_philosopher *philosopher);
-int             do_eating (t_data *data, t_philosopher *philosopher);
-int             do_thinking (t_data *data, t_philosopher *philosopher);
+void             do_sleeping (t_data *data, t_philosopher *philosopher);
+void             do_eating (t_data *data, t_philosopher *philosopher);
+void             do_thinking (t_data *data, t_philosopher *philosopher);
 int             wait_untill_taking_forks(t_data *data, t_philosopher *philosopher);
 
 //ft_time
@@ -79,5 +79,6 @@ long            get_actual_time_in_milliseconds();
 int             ft_atoi(const char *nptr);
 size_t          ft_strlen(const char *str);
 int             ft_strcmp(char *s1, char *s2);
+int	            ft_isdigit(int c);
 
 #endif

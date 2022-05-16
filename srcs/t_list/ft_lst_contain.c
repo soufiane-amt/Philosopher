@@ -6,11 +6,12 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 15:04:38 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/16 00:28:54 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/16 01:47:20 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "t_list.h"
+#include "philosopher.h"
 
 int ft_lst_contain(t_list **lst, void *value, int   type)
 {
