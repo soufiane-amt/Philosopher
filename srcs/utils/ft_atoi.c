@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 18:25:49 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/14 00:14:43 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/16 01:09:11 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,3 @@ int	ft_atoi(const char *nptr)
 	}
 	return (res * sign);
 }
-// #include <string.h>
-// #include <stdio.h>
-// int main ()
-// {
-// 	char num [] = "a-123";
-// 	printf("%d", ft_atoi(num));
-// }

@@ -37,12 +37,24 @@ int main ()
     t_test test;
     t_list *lst;
     t_test t;
+    int a;
+    int b;
+    int c;
 
 
-    test.n = 10;
-    test .c = 'a';
-    ft_lstadd_front(&lst, ft_lstnew((void *)&test));
-    // memcpy (&t, lst->content, sizeof(t));
-    t =*((t_test *) lst->content);
-    printf ("lst : n = %d ; c = %c\n", (*((t_test *) lst->content)).n, (*((t_test *) lst->content)).c);
+    a = 4;
+    b = 55;
+    c = 14;
+    // test.n = 10;
+    // test .c = 'a';
+    // ft_lstadd_front(&lst, ft_lstnew((void *)&test));
+    // // memcpy (&t, lst->content, sizeof(t));
+    // t =*((t_test *) lst->content);
+    // printf ("lst : n = %d ; c = %c\n", (*((t_test *) lst->content)).n, (*((t_test *) lst->content)).c);
+    ft_lstadd_front(&lst, ft_lstnew((void *)&a));
+    ft_lstadd_front(&lst, ft_lstnew((void *)&b));
+    ft_lstadd_front(&lst, ft_lstnew((void *)&c));
+    printf("%d\n", *(int *)lst->content);
+    printf("%d\n", *(int *)lst->next->content);
+    printf("%d\n", *(int *)lst->next->next->content);
 }

@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 21:07:04 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/15 23:52:11 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/16 00:41:43 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <pthread.h>
 #include <unistd.h>
 #include <sys/time.h>
-
+#include "t_list.h"
 
 //Philospher status
 #define NOTHING      0

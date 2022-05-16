@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 00:10:05 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/16 00:14:42 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/16 00:49:30 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,13 @@ t_philosopher    initialize_philosopher(int identity, int forks_number)
 
 void    build_philosopher(t_list **philsophers, t_data data)
 {
-    
+    int             identity;
+    t_philosopher   new_philosopher;
+
+    identity = 1;
+    while (identity++ <= data.number_of_philosophers)
+    {
+        new_philosopher = initialize_philosopher(identity, data.number_of_philosophers);
+        ft_lstadd_front(philsophers, ft_lstnew((void *)&new_philosopher));
+    }
 }
