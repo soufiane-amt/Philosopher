@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 00:10:05 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/16 01:56:42 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/17 00:53:27 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,27 +42,30 @@ void    initialize_forks(t_philosopher *philosopher, int forks_number)
 }
 
 
-t_philosopher    initialize_philosopher(int identity, int forks_number)
+t_philosopher    *initialize_philosopher(int identity, int forks_number)
 {
-    t_philosopher   philsopher;
+    t_philosopher   *philsopher;
 
-    philsopher.identity = identity;
-    philsopher.status = NOTHING;
-    initialize_forks(&philsopher, forks_number);
+    philsopher = malloc (sizeof(philsopher));
+    if (!philsopher)
+        return (NULL);
+    philsopher->identity = identity;
+    philsopher->status = NOTHING;
+    initialize_forks(philsopher, forks_number);
     return (philsopher);
 }
 
 void    build_philosophers(t_list **philsophers, t_data data)
 {
     int             identity;
-    t_philosopher   new_philosopher;
+    t_philosopher   *new_philosopher;
 
     identity = 1;
     while (identity <= data.number_of_philosophers)
     {
         new_philosopher = initialize_philosopher(identity, data.number_of_philosophers);
-        ft_lstadd_front(philsophers, ft_lstnew((void *)&new_philosopher));
-        printf("%d\n", new_philosopher.identity);
+        printf (">>%d\n", new_philosopher->identity);
+        ft_lstadd_front(philsophers, ft_lstnew((void *)new_philosopher));
         identity++;
     }
 }

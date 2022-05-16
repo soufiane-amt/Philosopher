@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 21:07:04 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/16 01:50:04 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/17 00:37:14 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ typedef struct s_philosopher
 //Init
 void            initialize_user_input (t_data *data, char   **argv);
 void            initialize_forks(t_philosopher *philosopher, int forks_number);
-t_philosopher   initialize_philosopher(int identity, int forks_number);
+t_philosopher   *initialize_philosopher(int identity, int forks_number);
 void            build_philosophers(t_list **philsophers, t_data data);
 
 //Philosopher situations
