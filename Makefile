@@ -6,7 +6,7 @@
 #    By: samajat <samajat@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/16 00:58:43 by samajat           #+#    #+#              #
-#    Updated: 2022/05/16 01:06:43 by samajat          ###   ########.fr        #
+#    Updated: 2022/05/16 01:44:28 by samajat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,10 +27,10 @@ TIME_SRC = get_passed_time get_time_in_millis\
 
 PACT_SRC = Ph_actions\
 
-LST_SRC = ft_lstadd_back ft_lstadd_front ft_lstclear \
-			ft_lstdelete_last ft_lstdelete_top ft_lstdelone \
+LST_SRC = ft_lstadd_front ft_lstadd_back ft_lstclear\
+			ft_lstdelete_last ft_lstdelete_top ft_lstdelone\
 			ft_lstiter ft_lstlast ft_lstnew ft_lstprint ft_lstsize\
-			ft_lst_contain \
+			ft_lst_contain\
 			
 
 ERR_SRC = print_error chstatus check_syntax check_redirection check_user_input\
@@ -39,7 +39,7 @@ INIT_SRC = initialize\
 
 ## fill_list  
 FILES = $(addprefix srcs/main/, $(M_SRC)) \
-	  $(addprefix srcs/ft_list/, $(LST_SRC)) \
+	  $(addprefix srcs/t_list/, $(LST_SRC)) \
 	  $(addprefix srcs/ft_init/, $(INIT_SRC)) \
 	  $(addprefix srcs/ft_time/, $(TIME_SRC)) \
 	  $(addprefix srcs/Philosopher_actions/, $(PACT_SRC)) \

@@ -31,10 +31,15 @@ t_list	*ft_lstnew(void *content)
 	return (node);
 }
 
-
+void    init(t_test **test)
+{
+    (*test)->c = 'F';
+    (*test)->n = 9999;
+}
 int main ()
 {
     t_test test;
+    t_test *test1;
     t_list *lst;
     t_test t;
     int a;
@@ -51,10 +56,12 @@ int main ()
     // // memcpy (&t, lst->content, sizeof(t));
     // t =*((t_test *) lst->content);
     // printf ("lst : n = %d ; c = %c\n", (*((t_test *) lst->content)).n, (*((t_test *) lst->content)).c);
-    ft_lstadd_front(&lst, ft_lstnew((void *)&a));
-    ft_lstadd_front(&lst, ft_lstnew((void *)&b));
-    ft_lstadd_front(&lst, ft_lstnew((void *)&c));
-    printf("%d\n", *(int *)lst->content);
-    printf("%d\n", *(int *)lst->next->content);
-    printf("%d\n", *(int *)lst->next->next->content);
+    // ft_lstadd_front(&lst, ft_lstnew((void *)&a));
+    // ft_lstadd_front(&lst, ft_lstnew((void *)&b));
+    // ft_lstadd_front(&lst, ft_lstnew((void *)&c));
+    // printf("%d\n", *(int *)lst->content);
+    // printf("%d\n", *(int *)lst->next->content);
+    // printf("%d\n", *(int *)lst->next->next->content);
+    init(&test1);
+    printf ("%c  %d\n", test1->c, test1->n);
 }

@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 00:10:05 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/16 00:49:30 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/16 01:38:13 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,18 @@ void    initialize_forks(t_philosopher *philosopher, int forks_number)
 {
     if (philosopher->identity == 1)
     {
-        philosopher->left_fork.fork_index = 0;
-        philosopher->right_fork.fork_index = forks_number - 1;
+        philosopher->left_fork.index = 0;
+        philosopher->right_fork.index = forks_number - 1;
     }
     else
     {
-        philosopher->left_fork.fork_index = philosopher->identity - 1;
-        philosopher->right_fork.fork_index = philosopher->identity - 2;
+        philosopher->left_fork.index = philosopher->identity - 1;
+        philosopher->right_fork.index = philosopher->identity - 2;
     }
-    philosopher->left_fork.fork_available = TRUE;
-    philosopher->right_fork.fork_available = TRUE;
-    pthread_mutex_init (&(philosopher->left_fork.fork_mutex), NULL);
-    pthread_mutex_init (&(philosopher->right_fork.fork_mutex), NULL);
+    philosopher->left_fork.available = TRUE;
+    philosopher->right_fork.available = TRUE;
+    pthread_mutex_init (&(philosopher->left_fork.mutex), NULL);
+    pthread_mutex_init (&(philosopher->right_fork.mutex), NULL);
 }
 
 
@@ -51,7 +51,7 @@ t_philosopher    initialize_philosopher(int identity, int forks_number)
     initialize_forks(&philsopher, forks_number);
 }
 
-void    build_philosopher(t_list **philsophers, t_data data)
+void    build_philosophers(t_list **philsophers, t_data data)
 {
     int             identity;
     t_philosopher   new_philosopher;

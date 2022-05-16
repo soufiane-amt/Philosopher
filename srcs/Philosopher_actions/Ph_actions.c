@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 22:25:08 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/15 18:24:23 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/16 01:15:26 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,21 +36,19 @@ int do_thinking (t_data *data, t_philosopher *philosopher)
 
 int wait_untill_taking_forks(t_data *data, t_philosopher *philosopher)
 {
-    if(philosopher->left_fork_available.fork_available)
+    if(philosopher->left_fork.available)
     {
-        philosopher->left_fork_available.fork_token = TRUE;
-        philosopher->left_fork_available.fork_available = FALSE;
+        philosopher->left_fork.available = FALSE;
         printf("%d ", get_passed_time_in_milli(data->launching_time));
         printf ("%d is taking a fork ", philosopher->identity);
     }
-    if(philosopher->right_fork_available.fork_available)
+    if(philosopher->right_fork.available)
     {
-        philosopher->right_fork_available.fork_token = TRUE;
-        philosopher->right_fork_available.fork_available = FALSE;
+        philosopher->right_fork.available = FALSE;
         printf("%d ", get_passed_time_in_milli(data->launching_time));
         printf ("%d is taking a fork ", philosopher->identity);
     }
-    if (!philosopher->left_fork_available.fork_token || !philosopher->right_fork_available.fork_token)
+    if (!philosopher->left_fork.available || !philosopher->right_fork.available)
         wait_untill_taking_forks(data, philosopher);
     return(1);
 }

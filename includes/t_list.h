@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 00:21:59 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/16 00:57:09 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/16 01:36:52 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 typedef struct s_list
 {
     void        *content;
-    struct  s_list  next;
+    struct  s_list  *next;
 }   t_list;
 
 //Type
