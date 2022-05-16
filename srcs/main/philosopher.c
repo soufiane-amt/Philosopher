@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 21:07:35 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/16 01:42:45 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/16 01:57:10 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ int main (int   argc, char  **argv)
     initialize_user_input(&data, argv);
     build_philosophers(&philsophers, data);
     
-    printf("-->%d\n", ((t_philosopher *)philsophers->content)->identity);
+    printf("-->%d\n", ((t_philosopher *)philsophers->next->next->content)->identity);
 }
