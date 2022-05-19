@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 21:07:04 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/19 22:53:15 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/20 00:52:29 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,6 @@ size_t          ft_strlen(const char *str);
 int             ft_strcmp(char *s1, char *s2);
 int	            ft_isdigit(int c);
 int             ft_all_allocated(int    number_of_variables, ...);
+void            print_philo_data(t_list **philos);
+
 #endif

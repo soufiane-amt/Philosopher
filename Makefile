@@ -6,7 +6,7 @@
 #    By: samajat <samajat@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/16 00:58:43 by samajat           #+#    #+#              #
-#    Updated: 2022/05/16 01:51:26 by samajat          ###   ########.fr        #
+#    Updated: 2022/05/20 00:51:03 by samajat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ CFLAGS = -Wall -Wextra -Werror -I includes/
 
 M_SRC =  philosopher ft_start_dinner\
 
-U_SRC = ft_strcmp ft_strlen ft_atoi ft_isdigit\
+U_SRC = ft_strcmp ft_strlen ft_atoi ft_isdigit ft_all_allocated ft_philos_data\
 
 
 TIME_SRC = get_passed_time get_time_in_millis\

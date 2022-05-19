@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 22:10:09 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/19 22:48:47 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/19 22:57:34 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int ft_all_allocated(int    number_of_variables, ...)
         t_free = va_arg(p_args, void *);
         if (t_free)
             free(t_free);
+        
         i++;
     }
+    return (0);
 }
