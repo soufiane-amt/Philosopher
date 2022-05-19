@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 21:07:04 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/17 00:37:14 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/19 22:53:15 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include <unistd.h>
 #include <sys/time.h>
 #include "t_list.h"
+#include <stdarg.h>
 
 //Philospher status
 #define NOTHING      0
@@ -47,15 +48,15 @@ typedef struct s_fork
 {
     int             index;
     int             available;
-    pthread_mutex_t mutex;
+    pthread_mutex_t *mutex;
 }   t_fork;
 
 typedef struct s_philosopher
 {
     int     identity;
     int     status;
-    t_fork  right_fork;
-    t_fork  left_fork;
+    t_fork  *right_fork;
+    t_fork  *left_fork;
 }   t_philosopher;
 
 
@@ -80,5 +81,5 @@ int             ft_atoi(const char *nptr);
 size_t          ft_strlen(const char *str);
 int             ft_strcmp(char *s1, char *s2);
 int	            ft_isdigit(int c);
-
+int             ft_all_allocated(int    number_of_variables, ...);
 #endif

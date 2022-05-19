@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 20:29:35 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/16 00:05:59 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/19 19:26:38 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ pthread_t tid[3];
 int counter;
 typedef struct mutex
 {
-    pthread_mutex_t lock;
+    pthread_mutex_t *lock;
 } t_mutex;
 t_mutex mu;
 void* doSomeThing(void *arg)
 {
-    pthread_mutex_lock(&mu.lock);
+    pthread_mutex_lock(mu.lock);
 
     unsigned long i = 0;
     counter += 1;
@@ -35,7 +35,7 @@ void* doSomeThing(void *arg)
 
     printf("\n Job %d finished\n", counter);
 
-    pthread_mutex_unlock(&mu.lock);
+    pthread_mutex_unlock(mu.lock);
 
     return NULL;
 }
@@ -44,8 +44,10 @@ int main(void)
 {
     int i = 0;
     int err;
+    pthread_mutex_t test;
 
-    if (pthread_mutex_init(&mu.lock, NULL) != 0)
+    mu.lock = &test;
+    if (pthread_mutex_init(mu.lock, NULL) != 0)
     {
         printf("\n mutex init failed\n");
         return 1;
@@ -62,7 +64,7 @@ int main(void)
     pthread_join(tid[0], NULL);
     pthread_join(tid[1], NULL);
     pthread_join(tid[2], NULL);
-    pthread_mutex_destroy(&mu.lock);
+    pthread_mutex_destroy(mu.lock);
 
     return 0;
 }

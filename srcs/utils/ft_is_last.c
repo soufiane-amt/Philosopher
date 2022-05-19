@@ -1,26 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_is_last.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/12 23:00:27 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/17 23:30:06 by samajat          ###   ########.fr       */
+/*   Created: 2022/05/19 21:24:55 by samajat           #+#    #+#             */
+/*   Updated: 2022/05/19 21:25:17 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "philosopher.h"
 
-#include "t_list.h"
-
-t_list	*ft_lstnew(void *content)
-{
-	t_list	*node;
-
-	node = malloc (sizeof(t_list));
-	if (!node)
-        return (NULL);
-	node -> content = content;
-	node -> next = NULL;
-	return (node);
-}
+int ft_is_last_philosopher ()

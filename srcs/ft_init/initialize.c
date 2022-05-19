@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 00:10:05 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/17 00:53:27 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/19 22:08:03 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,28 @@ void    initialize_user_input (t_data *data, char   **argv)
 
 void    initialize_forks(t_philosopher *philosopher, int forks_number)
 {
+    static t_fork                  *right_for_next;
+    static t_philosopher           *first_philosopher;
+    pthread_mutex_t                mutex;
+
     if (philosopher->identity == 1)
     {
-        philosopher->left_fork.index = 0;
-        philosopher->right_fork.index = forks_number - 1;
+        philosopher->left_fork->available = FALSE;
+        printf ("------------\n");
+        philosopher->left_fork->index = 0;
+        first_philosopher = philosopher;
     }
     else
     {
-        philosopher->left_fork.index = philosopher->identity - 1;
-        philosopher->right_fork.index = philosopher->identity - 2;
+        philosopher->left_fork->index = philosopher->identity - 1;
+        philosopher->right_fork = right_for_next;
     }
-    philosopher->left_fork.available = TRUE;
-    philosopher->right_fork.available = TRUE;
-    pthread_mutex_init (&(philosopher->left_fork.mutex), NULL);
-    pthread_mutex_init (&(philosopher->right_fork.mutex), NULL);
+    philosopher->left_fork->available = TRUE;
+    philosopher->left_fork->mutex = &mutex;
+    pthread_mutex_init (philosopher->left_fork->mutex, NULL);
+    right_for_next = philosopher->left_fork;
+    if (forks_number == philosopher->identity)
+        first_philosopher->right_fork = philosopher->left_fork;
 }
 
 
@@ -46,7 +54,9 @@ t_philosopher    *initialize_philosopher(int identity, int forks_number)
 {
     t_philosopher   *philsopher;
 
-    philsopher = malloc (sizeof(philsopher));
+    philsopher = malloc (sizeof(t_philosopher));
+    philsopher->left_fork = malloc (sizeof(t_fork));
+    philsopher->right_fork = malloc (sizeof(t_fork));
     if (!philsopher)
         return (NULL);
     philsopher->identity = identity;
@@ -59,13 +69,14 @@ void    build_philosophers(t_list **philsophers, t_data data)
 {
     int             identity;
     t_philosopher   *new_philosopher;
+    t_list *temp;
 
     identity = 1;
     while (identity <= data.number_of_philosophers)
     {
         new_philosopher = initialize_philosopher(identity, data.number_of_philosophers);
-        printf (">>%d\n", new_philosopher->identity);
-        ft_lstadd_front(philsophers, ft_lstnew((void *)new_philosopher));
+        temp = ft_lstnew((void *)new_philosopher);
+        ft_lstadd_front(philsophers, temp);
         identity++;
     }
 }

@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   struct.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/12 23:00:27 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/17 23:30:06 by samajat          ###   ########.fr       */
+/*   Created: 2022/05/17 23:55:13 by samajat           #+#    #+#             */
+/*   Updated: 2022/05/19 21:42:12 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "t_list.h"
-
-t_list	*ft_lstnew(void *content)
+#include <stdio.h>
+typedef struct s_test
 {
-	t_list	*node;
+	int     n;
+	char    c;
+}   t_test	;
 
-	node = malloc (sizeof(t_list));
-	if (!node)
-        return (NULL);
-	node -> content = content;
-	node -> next = NULL;
-	return (node);
+void increa (int    *i)
+{
+    *i = 0;
+    (*i)++;
+}
+int main ()
+{
+    t_test *t;
+
+    // increa(&t.n);
+    printf ("-->%p\n" ,(void *)t);
+    printf ("-->%p\n" ,(void *)t);
+    printf ("-->%p\n" ,(void *)t);
+    printf ("-->%p\n" ,(void *)t);
 }
