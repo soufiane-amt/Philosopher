@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philosopher.c                                      :+:      :+:    :+:   */
+/*   ft_usleep.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/12 21:07:35 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/20 19:15:14 by samajat          ###   ########.fr       */
+/*   Created: 2022/05/20 20:53:00 by samajat           #+#    #+#             */
+/*   Updated: 2022/05/20 21:20:16 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosopher.h"
 
-int main (int   argc, char  **argv)
+int    ft_usleep(long  time_in_milli, t_philosopher *philosopher)
 {
-    t_data          data;
-    t_list   **philsophers;
+    long    start_time;
 
-    philsophers = malloc (sizeof(t_philosopher *));
-    if (!philsophers)
-        return (NULL);
-    *philsophers = NULL;
-    (void)argc;
-    initialize_user_input(&data, argv);
-    build_philosophers(philsophers, data);
+    start_time = get_actual_time_in_milliseconds();
+    while (get_actual_time_in_milliseconds() - start_time > time_in_milli)
+    {
+        if(the_philosopher_is_dead(philosopher))
+            return (0);
+    }
+    return (1);
 }

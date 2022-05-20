@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 21:07:04 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/20 00:52:29 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/20 23:46:00 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@
 #define TRUE        1
 #define FALSE       0
 
+//status
+#define ALIVE       1
+#define DEAD        0
 
 //Structures
 typedef struct s_data
@@ -54,7 +57,9 @@ typedef struct s_fork
 typedef struct s_philosopher
 {
     int     identity;
+    pthread_
     int     status;
+    long    last_time_eaten;
     t_fork  *right_fork;
     t_fork  *left_fork;
 }   t_philosopher;
@@ -64,17 +69,19 @@ typedef struct s_philosopher
 void            initialize_user_input (t_data *data, char   **argv);
 void            initialize_forks(t_philosopher *philosopher, int forks_number);
 t_philosopher   *initialize_philosopher(int identity, int forks_number);
-void            build_philosophers(t_list **philsophers, t_data data);
+void            set_to_philosophers_to_default(t_list **philsophers, t_data data);
 
 //Philosopher situations
 void             do_sleeping (t_data *data, t_philosopher *philosopher);
 void             do_eating (t_data *data, t_philosopher *philosopher);
 void             do_thinking (t_data *data, t_philosopher *philosopher);
 int             wait_untill_taking_forks(t_data *data, t_philosopher *philosopher);
+int             the_philosopher_is_dead(t_philosopher *philosopher);
 
 //ft_time
 long            get_passed_time_in_milli(long program_launch_time);
 long            get_actual_time_in_milliseconds();
+int             ft_usleep(long  time_in_milli, t_philosopher *philosopher);
 
 //utils
 int             ft_atoi(const char *nptr);
