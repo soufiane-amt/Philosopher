@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 00:43:02 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/20 00:55:40 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/20 18:44:33 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 void    print_philo_info(t_list *temp)
 {
     printf ("-philosopher number %d\n", ((t_philosopher *)(temp)->content)->identity);
-    printf ("-right fork index : %d\n", ((t_philosopher *)(temp)->content)->right_fork->index);
-    printf ("-right fork add : %p\n", ((t_philosopher *)(temp)->content)->right_fork->mutex);
     printf ("-left fork index : %d\n", ((t_philosopher *)(temp)->content)->left_fork->index);
     printf ("-left fork add : %p\n", ((t_philosopher *)(temp)->content)->left_fork->mutex);
+    printf ("-right fork index : %d\n", ((t_philosopher *)(temp)->content)->right_fork->index);
+    printf ("-right fork add : %p\n", ((t_philosopher *)(temp)->content)->right_fork->mutex);
     printf("-----------------------\n");
 }
 void    print_philo_data(t_list **philos)

@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 00:10:05 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/20 00:42:25 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/20 19:05:41 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,24 +57,25 @@ void    initialize_forks(t_philosopher *philosopher, int forks_number)
     static t_philosopher           *first_philosopher;
     static  int                     t;
 
-    t++;
     if (philosopher->identity == 1)
     {
         philosopher->right_fork->available = TRUE;
-        philosopher->right_fork->index = forks_number - 1 ;
-        printf ("{%d\n", forks_number - 1);
+        philosopher->right_fork->index = philosopher->identity - 1;
+        // printf ("{%d\n", forks_number - 1);
         first_philosopher = philosopher;
     }
     else
     {
-        philosopher->right_fork->index = forks_number - t;
-        printf ("{%d\n", forks_number - t);
+        philosopher->right_fork->index = philosopher->identity - 1;
+        // printf ("{%d\n", forks_number - t);
         philosopher->left_fork = left_for_next;
+        // printf("identity : %d \nleft_for_next %p\n", philosopher->identity, left_for_next);
     }
+    t++;
     philosopher->right_fork->available = TRUE;
     // philosopher->right_fork->mutex = &mutex;
     pthread_mutex_init (philosopher->right_fork->mutex, NULL);
-    left_for_next = philosopher->left_fork;
+    left_for_next = philosopher->right_fork;
     if (forks_number == philosopher->identity)
         first_philosopher->left_fork = philosopher->right_fork;
 }
