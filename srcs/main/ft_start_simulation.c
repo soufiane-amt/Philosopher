@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 00:23:03 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/21 18:58:53 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/21 20:49:17 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,12 @@
 void    *ft_start_dinner (void *philosopher)
 {
     static long launching_time;
-
+    t_philosopher *tr;
+    
+    tr = (t_philosopher *)philosopher;
+    
+   if (tr->identity % 2)
+    usleep(tr->data.time_to_eat);
     if (!launching_time)
         launching_time = get_actual_time_in_milliseconds();
     if(wait_untill_taking_forks(launching_time, philosopher))
