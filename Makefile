@@ -6,7 +6,7 @@
 #    By: samajat <samajat@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/16 00:58:43 by samajat           #+#    #+#              #
-#    Updated: 2022/05/20 19:57:43 by samajat          ###   ########.fr        #
+#    Updated: 2022/05/21 19:01:09 by samajat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ M_SRC =  philosopher ft_start_simulation\
 U_SRC = ft_strcmp ft_strlen ft_atoi ft_isdigit ft_all_allocated ft_philos_data\
 
 
-TIME_SRC = get_passed_time get_time_in_millis\
+TIME_SRC = get_passed_time get_time_in_millis ft_usleep\
 
 PACT_SRC = Ph_actions\
 

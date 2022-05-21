@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 00:10:05 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/20 20:10:42 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/21 18:55:48 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ t_philosopher    *initialize_philosopher(int identity, int forks_number)
             philsopher->right_fork->mutex))
         return (NULL);
     philsopher->identity = identity;
-    philsopher->status = NOTHING;
+    philsopher->status = ALIVE;
     initialize_forks(philsopher, forks_number);
     return (philsopher);
 }
@@ -74,6 +74,8 @@ void    set_to_philosophers_to_default(t_list **philsophers, t_data data)
     while (identity <= data.number_of_philosophers)
     {
         new_philosopher = initialize_philosopher(identity, data.number_of_philosophers);
+        new_philosopher->data = data;
+        pthread_create(&new_philosopher->thread_id, NULL, &ft_start_dinner, (void *)new_philosopher);
         ft_lstadd_back(philsophers, ft_lstnew((void *)new_philosopher));
         identity++;
     }
