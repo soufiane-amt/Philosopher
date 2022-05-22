@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 20:53:00 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/21 21:49:13 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/22 20:51:22 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int    ft_usleep(long  time_in_milli, t_philosopher *philosopher)
 
     (void)philosopher;
     start_time = get_actual_time_in_milliseconds();
-    while (get_actual_time_in_milliseconds() - start_time > time_in_milli);
+    while (get_actual_time_in_milliseconds() - start_time < time_in_milli && !philosopher->data->some_one_is_dead)
+        usleep(100);
     return (0);
 }

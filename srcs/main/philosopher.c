@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 21:07:35 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/21 18:50:09 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/22 20:53:58 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ int main (int   argc, char  **argv)
     *philsophers = NULL;
     (void)argc;
     initialize_user_input(&data, argv);
-    set_to_philosophers_to_default(philsophers, data);
+    set_to_philosophers_to_default(philsophers, &data);
     let_the_fun_bigins(philsophers);
+    while (!data.some_one_is_dead)
+    {
+        usleep(100);
+    }
 }

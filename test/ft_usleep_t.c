@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 20:58:45 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/21 21:13:34 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/21 22:23:18 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int    ft_usleep(long  time_in_milli)
     long    start_time;
 
     start_time = get_actual_time_in_milliseconds();
-    while (get_actual_time_in_milliseconds() - start_time < time_in_milli);
+    while (get_actual_time_in_milliseconds() - start_time <= time_in_milli);
     return (0);
 }
 

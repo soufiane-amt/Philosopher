@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 21:07:04 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/21 19:23:04 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/22 20:25:00 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,21 @@
 #define DEAD        0
 
 //Structures
+typedef struct s_the_dead
+{
+    int     identity;
+    long    time;
+}   t_the_dead;
+
 typedef struct s_data
 {
-    long    number_of_philosophers;
-    long    time_to_die;
-    long    time_to_eat;
-    long    time_to_sleep;
-    long    launching_time;
+    long        number_of_philosophers;
+    long        time_to_die;
+    long        time_to_eat;
+    long        time_to_sleep;
+    long        launching_time;
+    t_the_dead  dead_philosopher;
+    int         some_one_is_dead;
 }   t_data;
 
 typedef struct s_fork
@@ -62,7 +70,7 @@ typedef struct s_philosopher
     long            last_time_eaten;
     t_fork          *right_fork;
     t_fork          *left_fork;
-    t_data          data;
+    t_data          *data;
 }   t_philosopher;
 
 
@@ -72,7 +80,7 @@ void            *ft_start_dinner (void *philosopher);
 void            initialize_user_input (t_data *data, char   **argv);
 void            initialize_forks(t_philosopher *philosopher, int forks_number);
 t_philosopher   *initialize_philosopher(int identity, int forks_number);
-void            set_to_philosophers_to_default(t_list **philsophers, t_data data);
+void            set_to_philosophers_to_default(t_list **philsophers, t_data *data);
 int             let_the_fun_bigins(t_list   **philosophers);
 
 //Philosopher situations

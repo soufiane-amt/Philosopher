@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 00:10:05 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/21 20:13:17 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/22 20:55:43 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ void    initialize_user_input (t_data *data, char   **argv)
     data->time_to_die = (long)ft_atoi(argv[2]);
     data->time_to_eat = (long)ft_atoi(argv[3]);
     data->time_to_sleep = (long)ft_atoi(argv[4]);
+    data->dead_philosopher.identity = 0;
+    data->dead_philosopher.time = 0;
+    data->some_one_is_dead = 0;
 }
 
 void    initialize_forks(t_philosopher *philosopher, int forks_number)
@@ -64,24 +67,16 @@ t_philosopher    *initialize_philosopher(int identity, int forks_number)
     initialize_forks(philsopher, forks_number);
     return (philsopher);
 }
-void            *salut(void *v)
-{
-    (void)v;
-    static int count;
-    count++;
-    printf("hello from %d\n", count);
-    return (NULL);
-}
 
-void    set_to_philosophers_to_default(t_list **philsophers, t_data data)
+void    set_to_philosophers_to_default(t_list **philsophers, t_data *data)
 {
     int             identity;
     t_philosopher   *new_philosopher;
 
     identity = 1;
-    while (identity <= data.number_of_philosophers)
+    while (identity <= data->number_of_philosophers)
     {
-        new_philosopher = initialize_philosopher(identity, data.number_of_philosophers);
+        new_philosopher = initialize_philosopher(identity, data->number_of_philosophers);
         new_philosopher->data = data;
         pthread_create(&new_philosopher->thread_id, NULL, ft_start_dinner, (void *)new_philosopher);
         ft_lstadd_back(philsophers, ft_lstnew((void *)new_philosopher));
