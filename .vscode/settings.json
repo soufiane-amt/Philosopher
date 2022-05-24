@@ -1,9 +1,10 @@
 {
     "files.associations": {
-        "__functional_base": "c",
-        "memory": "c",
-        "tuple": "c",
-        "utility": "c",
-        "t_list.h": "c"
-    }
+		"__functional_base": "c",
+		"memory": "c",
+		"tuple": "c",
+		"utility": "c",
+		"t_list.h": "c",
+		"stdarg.h": "c"
+	}
 }

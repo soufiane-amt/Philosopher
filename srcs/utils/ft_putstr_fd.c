@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/06 11:21:04 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/24 22:19:38 by samajat          ###   ########.fr       */
+/*   Created: 2021/11/10 16:10:46 by samajat           #+#    #+#             */
+/*   Updated: 2022/05/24 22:19:01 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosopher.h"
 
-int	ft_isdigit(int c)
+void	ft_putstr_fd(char *s, int fd)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	write(fd, s, ft_strlen(s));
 }

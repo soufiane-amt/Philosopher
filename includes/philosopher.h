@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 21:07:04 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/24 20:53:40 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/24 22:30:47 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 #include <sys/time.h>
 #include "t_list.h"
 #include <stdarg.h>
+#include <limits.h>
 
 //Philospher status
 #define NOTHING      0
@@ -36,6 +37,10 @@
 //status
 #define ALIVE       1
 #define DEAD        0
+
+//ERRORS
+#define	ARGC_ERROR22 "Error: Wrong amount of arguments.";
+#define	ARGV_ERROR33 "Error: At least one wrong argument";
 
 //Structures
 typedef struct s_the_dead
@@ -98,6 +103,9 @@ long            get_passed_time_in_milli(long program_launch_time);
 long            get_actual_time_in_milliseconds();
 int             ft_usleep(long  time_in_milli, t_philosopher *philosopher);
 
+//Errors
+int				user_input_is_valid (char	**argv, int argc);
+
 //utils
 int             ft_atoi(const char *nptr);
 size_t          ft_strlen(const char *str);
@@ -105,5 +113,6 @@ int             ft_strcmp(char *s1, char *s2);
 int	            ft_isdigit(int c);
 int             ft_all_allocated(int    number_of_variables, ...);
 void            print_philo_data(t_list **philos);
-void            *salut(void *);
+void			ft_putstr_fd(char *s, int fd);
+int				ft_isdigit(int c);
 #endif

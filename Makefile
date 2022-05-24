@@ -6,7 +6,7 @@
 #    By: samajat <samajat@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/16 00:58:43 by samajat           #+#    #+#              #
-#    Updated: 2022/05/21 19:01:09 by samajat          ###   ########.fr        #
+#    Updated: 2022/05/24 22:31:34 by samajat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ LST_SRC = ft_lstadd_front ft_lstadd_back ft_lstclear\
 			ft_lst_contain\
 			
 
-ERR_SRC = print_error chstatus check_syntax check_redirection check_user_input\
+ERR_SRC = check_input\
 
 INIT_SRC = initialize\
 
@@ -44,7 +44,7 @@ FILES = $(addprefix srcs/main/, $(M_SRC)) \
 	  $(addprefix srcs/ft_time/, $(TIME_SRC)) \
 	  $(addprefix srcs/Philosopher_actions/, $(PACT_SRC)) \
 	  $(addprefix srcs/utils/, $(U_SRC)) \
-	#   $(addprefix srcs/error_handler/, $(ERR_SRC)) \
+	  $(addprefix srcs/error_handler/, $(ERR_SRC)) \
 
 OBJ = $(FILES:=.o)
 
