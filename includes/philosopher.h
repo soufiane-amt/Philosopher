@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 21:07:04 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/22 20:25:00 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/24 20:53:40 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,9 @@ typedef struct s_data
     long        launching_time;
     t_the_dead  dead_philosopher;
     int         some_one_is_dead;
+    pthread_mutex_t   printing_mutex;
+    pthread_mutex_t     hhhhh;
+
 }   t_data;
 
 typedef struct s_fork

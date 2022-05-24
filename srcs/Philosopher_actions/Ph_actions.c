@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 22:25:08 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/22 20:48:54 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/24 20:46:05 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ void do_sleeping (long  launching_time, t_philosopher *philosopher)
     philosopher->right_fork->available = TRUE;
     pthread_mutex_unlock(philosopher->left_fork->mutex);
     pthread_mutex_unlock(philosopher->right_fork->mutex);
+    pthread_mutex_lock(&philosopher->data->printing_mutex);
     printf("%ld %d is sleeping \n", get_passed_time_in_milli(launching_time), philosopher->identity);
+    pthread_mutex_unlock(&philosopher->data->printing_mutex);
     // ft_usleep(philosopher->data->time_to_sleep, philosopher);
     usleep(philosopher->data->time_to_sleep * 1000);
 }
@@ -31,7 +33,9 @@ void do_sleeping (long  launching_time, t_philosopher *philosopher)
 
 void do_eating (long  launching_time, t_philosopher *philosopher)
 {
+    pthread_mutex_lock(&philosopher->data->printing_mutex);
     printf ("%ld %d is eating \n", get_passed_time_in_milli(launching_time), philosopher->identity);
+    pthread_mutex_unlock(&philosopher->data->printing_mutex);
     philosopher->last_time_eaten = get_actual_time_in_milliseconds();
     // ft_usleep(philosopher->data->time_to_eat, philosopher);
     usleep(philosopher->data->time_to_eat * 1000);
@@ -40,11 +44,10 @@ void do_eating (long  launching_time, t_philosopher *philosopher)
 void do_thinking (long  launching_time, t_philosopher *philosopher)
 {
     if (philosopher->status == DEAD)
-    {
         return ;
-    }
-    philosopher->last_time_eaten = get_actual_time_in_milliseconds();
+    pthread_mutex_lock(&philosopher->data->printing_mutex);
     printf("%ld %d is thinking \n", get_passed_time_in_milli(launching_time), philosopher->identity);
+    pthread_mutex_unlock(&philosopher->data->printing_mutex);
 }
 
 int the_philosopher_is_dead(t_philosopher *philosopher)
@@ -85,11 +88,15 @@ int the_philosopher_is_dead(t_philosopher *philosopher)
 int wait_untill_taking_forks(long  launching_time, t_philosopher *philosopher)
 {
     pthread_mutex_lock(philosopher->left_fork->mutex);
-    philosopher->left_fork->available = FALSE;
+    // philosopher->left_fork->available = FALSE;
+    pthread_mutex_lock(&philosopher->data->printing_mutex);
     printf("%ld %d is taking a fork left\n", get_passed_time_in_milli(launching_time), philosopher->identity);
+    pthread_mutex_unlock(&philosopher->data->printing_mutex);
     pthread_mutex_lock(philosopher->right_fork->mutex);
-    philosopher->right_fork->available = FALSE;
+    // philosopher->right_fork->available = FALSE;
+    pthread_mutex_lock(&philosopher->data->printing_mutex);
     printf("%ld %d is taking a fork right\n", get_passed_time_in_milli(launching_time), philosopher->identity);
+    pthread_mutex_unlock(&philosopher->data->printing_mutex);
     return(1);
 }
 

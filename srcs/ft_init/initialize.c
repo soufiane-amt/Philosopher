@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 00:10:05 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/22 20:55:43 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/24 20:56:55 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ void    initialize_user_input (t_data *data, char   **argv)
     data->dead_philosopher.identity = 0;
     data->dead_philosopher.time = 0;
     data->some_one_is_dead = 0;
+    pthread_mutex_init(&(data->printing_mutex), NULL);
+    pthread_mutex_init(&(data->hhhhh), NULL);
+
 }
 
 void    initialize_forks(t_philosopher *philosopher, int forks_number)
