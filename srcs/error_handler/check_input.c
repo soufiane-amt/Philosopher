@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 21:51:13 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/24 22:31:06 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/25 22:26:35 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_isnbr(char *str)
 
 int	nbr_is_int(char *str)
 {
-	long	nbr;
+	int	nbr;
 
 	nbr = ft_atoi(str);
 	if (nbr < INT_MIN || nbr > INT_MAX)
@@ -44,14 +44,14 @@ int	nbr_is_int(char *str)
 	return (1);
 }
 
-int	user_input_is_valid (char	**argv, int argc)
+int	user_input_is_valid(char **argv, int argc)
 {
 	int	i;
 
-	i = 0;
-	if (argc != 5)
+	i = 1;
+	if (argc > 6)
 	{
-		ft_putstr_fd("Error: Wrong amount of arguments." , 2);
+		ft_putstr_fd("Error: Wrong amount of arguments.", 2);
 		return (0);
 	}
 	while (argv[i])

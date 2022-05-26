@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 21:07:35 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/24 22:29:43 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/25 20:45:21 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main (int   argc, char  **argv)
 {
-    t_data          data;
+    t_data    data;
     t_list   **philsophers;
     
 	if (!user_input_is_valid(argv, argc))

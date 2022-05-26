@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 22:25:08 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/24 21:50:31 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/25 22:23:59 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ void do_eating (long  launching_time, t_philosopher *philosopher)
     philosopher->last_time_eaten = get_actual_time_in_milliseconds();
     // ft_usleep(philosopher->data->time_to_eat, philosopher);
     usleep(philosopher->data->time_to_eat * 1000);
+	philosopher->nbr_meals++;
+	if (philosopher->nbr_meals == philosopher->data->nbr_times_a_philo_must_eat)
+		philosopher->data->philos_reached_min_eat++;
 }
 
 void do_thinking (long  launching_time, t_philosopher *philosopher)

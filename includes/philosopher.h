@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 21:07:04 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/24 22:30:47 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/25 21:28:36 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,17 @@ typedef struct s_the_dead
 
 typedef struct s_data
 {
-    long        number_of_philosophers;
-    long        time_to_die;
-    long        time_to_eat;
-    long        time_to_sleep;
-    long        launching_time;
-    t_the_dead  dead_philosopher;
-    int         some_one_is_dead;
-    pthread_mutex_t   printing_mutex;
+    int	        		number_of_philosophers;
+    int	        		time_to_die;
+    int	        		time_to_eat;
+    int	        		time_to_sleep;
+    int	        		launching_time;
+    int	        		nbr_times_a_philo_must_eat;
+    t_the_dead  		dead_philosopher;
+    int         		some_one_is_dead;
+    pthread_mutex_t   	printing_mutex;
     pthread_mutex_t     hhhhh;
-
+	int					philos_reached_min_eat;
 }   t_data;
 
 typedef struct s_fork
@@ -79,6 +80,7 @@ typedef struct s_philosopher
     t_fork          *right_fork;
     t_fork          *left_fork;
     t_data          *data;
+	int				nbr_meals;
 }   t_philosopher;
 
 
@@ -100,7 +102,7 @@ int             the_philosopher_is_dead(t_philosopher *philosopher);
 
 //ft_time
 long            get_passed_time_in_milli(long program_launch_time);
-long            get_actual_time_in_milliseconds();
+long            get_actual_time_in_milliseconds(void);
 int             ft_usleep(long  time_in_milli, t_philosopher *philosopher);
 
 //Errors

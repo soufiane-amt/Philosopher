@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 00:23:03 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/24 20:55:54 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/25 22:30:31 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@ void	*check_death(void *a)
 			printf("%ld %d died \n", get_passed_time_in_milli(philo->last_time_eaten), philo->identity);
             pthread_mutex_unlock(&philo->data->hhhhh);
             break;
+		}
+		if (philo->data->number_of_philosophers == philo->data->philos_reached_min_eat)
+		{
+			pthread_mutex_lock(&philo->data->printing_mutex);
+			printf("Over simulation \n");
+            pthread_mutex_unlock(&philo->data->hhhhh);
+			break;
 		}
         usleep(100);
 	}

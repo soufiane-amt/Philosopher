@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 00:10:05 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/24 20:56:55 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/25 22:27:13 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,17 @@ void    initialize_user_input (t_data *data, char   **argv)
 {
     //handle bad args
     // data->launching_time = get_actual_time_in_milliseconds ();
-    data->number_of_philosophers = (long)ft_atoi(argv[1]);
-    data->time_to_die = (long)ft_atoi(argv[2]);
-    data->time_to_eat = (long)ft_atoi(argv[3]);
-    data->time_to_sleep = (long)ft_atoi(argv[4]);
+    data->number_of_philosophers = ft_atoi(argv[1]);
+    data->time_to_die = ft_atoi(argv[2]);
+    data->time_to_eat = ft_atoi(argv[3]);
+    data->time_to_sleep = ft_atoi(argv[4]);
+    data->nbr_times_a_philo_must_eat = ft_atoi(argv[5]);
     data->dead_philosopher.identity = 0;
     data->dead_philosopher.time = 0;
     data->some_one_is_dead = 0;
     pthread_mutex_init(&(data->printing_mutex), NULL);
     pthread_mutex_init(&(data->hhhhh), NULL);
-
+	data->philos_reached_min_eat = 0;
 }
 
 void    initialize_forks(t_philosopher *philosopher, int forks_number)
@@ -68,6 +69,7 @@ t_philosopher    *initialize_philosopher(int identity, int forks_number)
     philsopher->identity = identity;
     philsopher->status = ALIVE;
     initialize_forks(philsopher, forks_number);
+	philsopher->nbr_meals = 0;
     return (philsopher);
 }
 
