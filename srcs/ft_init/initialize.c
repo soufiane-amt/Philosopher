@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 00:10:05 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/25 22:27:13 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/26 19:25:27 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void    initialize_user_input (t_data *data, char   **argv)
     data->time_to_die = ft_atoi(argv[2]);
     data->time_to_eat = ft_atoi(argv[3]);
     data->time_to_sleep = ft_atoi(argv[4]);
-    data->nbr_times_a_philo_must_eat = ft_atoi(argv[5]);
+	if (argv[5])
+    	data->nbr_times_a_philo_must_eat = ft_atoi(argv[5]);
     data->dead_philosopher.identity = 0;
     data->dead_philosopher.time = 0;
     data->some_one_is_dead = 0;
