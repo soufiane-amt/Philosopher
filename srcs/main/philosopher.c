@@ -6,13 +6,13 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 21:07:35 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/25 20:45:21 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/27 23:53:08 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosopher.h"
 
-int main (int   argc, char  **argv)
+int main (int argc, char **argv)
 {
     t_data    data;
     t_list   **philsophers;
@@ -25,11 +25,10 @@ int main (int   argc, char  **argv)
     *philsophers = NULL;
     (void)argc;
     initialize_user_input(&data, argv);
-    pthread_mutex_lock(&data.hhhhh);
+    pthread_mutex_lock(&data.threads_controller);
     set_to_philosophers_to_default(philsophers, &data);
     let_the_fun_bigins(philsophers);
-    pthread_mutex_lock(&data.hhhhh);
+    pthread_mutex_lock(&data.threads_controller);
+	end_simulation(&data, philsophers);
 	return (1);
-/*     while (!data.some_one_is_dead)
-        usleep(100); */
 }

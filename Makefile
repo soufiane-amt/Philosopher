@@ -6,7 +6,7 @@
 #    By: samajat <samajat@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/16 00:58:43 by samajat           #+#    #+#              #
-#    Updated: 2022/05/25 20:45:15 by samajat          ###   ########.fr        #
+#    Updated: 2022/05/27 23:23:35 by samajat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,10 +30,10 @@ PACT_SRC = Ph_actions\
 LST_SRC = ft_lstadd_front ft_lstadd_back ft_lstclear\
 			ft_lstdelete_last ft_lstdelete_top ft_lstdelone\
 			ft_lstiter ft_lstlast ft_lstnew ft_lstprint ft_lstsize\
-			ft_lst_contain\
+			ft_lst_contain delete_philo\
 			
 
-ERR_SRC = check_input\
+ERR_SRC = check_input end_simulation\
 
 INIT_SRC = initialize\
 

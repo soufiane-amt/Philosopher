@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 21:07:04 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/25 21:28:36 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/27 23:28:58 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,6 @@
 #define	ARGV_ERROR33 "Error: At least one wrong argument";
 
 //Structures
-typedef struct s_the_dead
-{
-    int     identity;
-    long    time;
-}   t_the_dead;
 
 typedef struct s_data
 {
@@ -57,10 +52,9 @@ typedef struct s_data
     int	        		time_to_sleep;
     int	        		launching_time;
     int	        		nbr_times_a_philo_must_eat;
-    t_the_dead  		dead_philosopher;
     int         		some_one_is_dead;
     pthread_mutex_t   	printing_mutex;
-    pthread_mutex_t     hhhhh;
+    pthread_mutex_t     threads_controller;
 	int					philos_reached_min_eat;
 }   t_data;
 
@@ -73,13 +67,12 @@ typedef struct s_fork
 
 typedef struct s_philosopher
 {
-    int             identity;
+	int             identity;
     pthread_t       thread_id;
-    int             status;
     long            last_time_eaten;
-    t_fork          *right_fork;
-    t_fork          *left_fork;
-    t_data          *data;
+	t_fork          *right_fork;
+	t_fork          *left_fork;
+	t_data          *data;
 	int				nbr_meals;
 }   t_philosopher;
 
@@ -108,6 +101,9 @@ int             ft_usleep(long  time_in_milli, t_philosopher *philosopher);
 //Errors
 int				user_input_is_valid (char	**argv, int argc);
 
+//free
+void			free_forks(t_fork	*right_fork);
+void			end_simulation(t_data	*data, t_list	**philosopher);
 //utils
 int             ft_atoi(const char *nptr);
 size_t          ft_strlen(const char *str);
@@ -117,4 +113,5 @@ int             ft_all_allocated(int    number_of_variables, ...);
 void            print_philo_data(t_list **philos);
 void			ft_putstr_fd(char *s, int fd);
 int				ft_isdigit(int c);
+void			delete_philo(void *philo);
 #endif

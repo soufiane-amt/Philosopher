@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 00:21:59 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/16 01:36:52 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/27 22:50:02 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
 t_list	*ft_lstnew(void *content);
 void	ft_lstprint(t_list *lst);
 int     ft_lst_contain(t_list **lst, void *value, int   type);
-void	ft_lstclear(t_list **lst);
-void	ft_lstdelone(t_list **lst);
+void	ft_lstclear(t_list **lst, void (*del)(void *));
+void	ft_lstdelone(t_list *lst, void (*del)(void*));
 int	    ft_lstdelete_last(t_list **lst);
 int	    ft_lstdelete_top(t_list **lst);
 void	ft_lstiter(t_list *lst, void (*f)(void *));

@@ -6,19 +6,19 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 23:00:19 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/16 00:30:46 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/27 23:34:43 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "t_list.h"
 
-void	ft_lstdelone(t_list **lst)
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	if (!lst || !(*lst)->content)
+	if (!lst || !del)
 		return ;
-    free((*lst)->content);
-    (*lst)->content = NULL;
-	free (*lst);
+	// printf("About to delete the phili")
+	del (lst -> content);
+	free (lst);
 	lst = NULL;
 }

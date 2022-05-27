@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 00:10:05 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/26 19:25:27 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/27 23:45:59 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,9 @@ void    initialize_user_input (t_data *data, char   **argv)
     data->time_to_sleep = ft_atoi(argv[4]);
 	if (argv[5])
     	data->nbr_times_a_philo_must_eat = ft_atoi(argv[5]);
-    data->dead_philosopher.identity = 0;
-    data->dead_philosopher.time = 0;
     data->some_one_is_dead = 0;
     pthread_mutex_init(&(data->printing_mutex), NULL);
-    pthread_mutex_init(&(data->hhhhh), NULL);
+    pthread_mutex_init(&(data->threads_controller), NULL);
 	data->philos_reached_min_eat = 0;
 }
 
@@ -37,7 +35,6 @@ void    initialize_forks(t_philosopher *philosopher, int forks_number)
 
     if (philosopher->identity == 1)
     {
-        philosopher->right_fork->available = TRUE;
         philosopher->right_fork->index = philosopher->identity - 1;
         first_philosopher = philosopher;
     }
@@ -46,13 +43,11 @@ void    initialize_forks(t_philosopher *philosopher, int forks_number)
         philosopher->right_fork->index = philosopher->identity - 1;
         philosopher->left_fork = left_for_next;
     }
-    philosopher->right_fork->available = TRUE;
     pthread_mutex_init (philosopher->right_fork->mutex, NULL);
     left_for_next = philosopher->right_fork;
     if (forks_number == philosopher->identity)
         first_philosopher->left_fork = philosopher->right_fork;
 }
-
 
 t_philosopher    *initialize_philosopher(int identity, int forks_number)
 {
@@ -68,7 +63,6 @@ t_philosopher    *initialize_philosopher(int identity, int forks_number)
             philsopher->right_fork->mutex))
         return (NULL);
     philsopher->identity = identity;
-    philsopher->status = ALIVE;
     initialize_forks(philsopher, forks_number);
 	philsopher->nbr_meals = 0;
     return (philsopher);
