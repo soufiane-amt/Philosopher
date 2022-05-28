@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 21:51:13 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/25 22:26:35 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/28 19:11:20 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	user_input_is_valid(char **argv, int argc)
 	int	i;
 
 	i = 1;
-	if (argc > 6)
+	if (argc > 6 || argc < 5)
 	{
 		ft_putstr_fd("Error: Wrong amount of arguments.", 2);
 		return (0);

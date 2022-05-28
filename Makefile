@@ -6,7 +6,7 @@
 #    By: samajat <samajat@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/16 00:58:43 by samajat           #+#    #+#              #
-#    Updated: 2022/05/27 23:23:35 by samajat          ###   ########.fr        #
+#    Updated: 2022/05/28 21:25:57 by samajat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,10 @@ CFLAGS = -Wall -Wextra -Werror -I includes/
 
 M_SRC =  philosopher ft_start_simulation\
 
-U_SRC = ft_strcmp ft_strlen ft_atoi ft_isdigit ft_all_allocated ft_philos_data ft_putstr_fd\
+U_SRC = ft_strcmp ft_strlen ft_atoi ft_isdigit ft_all_allocated ft_putstr_fd\
 
 
-TIME_SRC = get_passed_time get_time_in_millis ft_usleep\
+TIME_SRC = get_passed_time get_time_in_millis\
 
 PACT_SRC = Ph_actions\
 

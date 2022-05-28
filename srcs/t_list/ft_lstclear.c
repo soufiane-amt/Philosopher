@@ -6,13 +6,11 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 23:00:12 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/27 22:49:05 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/28 21:23:29 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "t_list.h"
-
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {

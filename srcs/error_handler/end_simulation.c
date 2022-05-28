@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 18:24:48 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/27 23:53:06 by samajat          ###   ########.fr       */
+/*   Updated: 2022/05/28 20:38:57 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	free_forks(t_fork	*right_fork)
 {
-	pthread_mutex_destroy(right_fork->mutex);	
+	pthread_mutex_destroy(right_fork->mutex);
 	free(right_fork);
 }
 
