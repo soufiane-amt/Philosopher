@@ -6,11 +6,11 @@
 #    By: samajat <samajat@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/16 00:58:43 by samajat           #+#    #+#              #
-#    Updated: 2022/05/28 21:25:57 by samajat          ###   ########.fr        #
+#    Updated: 2022/06/03 20:22:34 by samajat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = philosopher
+NAME = philo
 
 HEADER = philosopher.h t_list.h
 
@@ -52,7 +52,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@echo "\n"
-	@echo "\033[0;32mCompiling minishell..."
+	@echo "\033[0;32mCompiling philo..."
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(READ) -g
 	@echo "\n\033[0mDone !"
 

@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 21:07:04 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/28 20:38:16 by samajat          ###   ########.fr       */
+/*   Updated: 2022/06/03 20:20:57 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,9 @@
 # include <stdarg.h>
 # include <limits.h>
 
-//Philospher status
-# define NOTHING      0
-# define EATING      25
-# define SLEEPING    26
-# define THINKING    27
-# define DYING       28
-
 //utils
 # define TRUE        1
 # define FALSE       0
-
-//status
-# define ALIVE       1
-# define DEAD        0
 
 //ERRORS
 # define	ARGC_ERROR "Error: Wrong amount of arguments."
@@ -60,7 +49,6 @@ typedef struct s_data
 typedef struct s_fork
 {
 	int					index;
-	int					available;
 	pthread_mutex_t		*mutex;
 }			t_fork;
 

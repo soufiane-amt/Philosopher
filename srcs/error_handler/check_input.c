@@ -6,7 +6,7 @@
 /*   By: samajat <samajat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 21:51:13 by samajat           #+#    #+#             */
-/*   Updated: 2022/05/28 19:11:20 by samajat          ###   ########.fr       */
+/*   Updated: 2022/06/03 20:22:01 by samajat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	nbr_is_int(char *str)
 	int	nbr;
 
 	nbr = ft_atoi(str);
-	if (nbr < INT_MIN || nbr > INT_MAX)
+	if (nbr < 1 || nbr > INT_MAX)
 		return (0);
 	return (1);
 }
